@@ -1,0 +1,4 @@
+id,value,timestamp
+1,foo,not-a-date
+2,missing-value
+3,baz,2025-01-03T18:30:00Z
