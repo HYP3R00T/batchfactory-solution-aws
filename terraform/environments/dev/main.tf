@@ -160,7 +160,7 @@ resource "aws_iam_role" "api_reader_role" {
 
 # IAM POLICIES
 
-# Validator: CloudWatch Logs + S3 read + SQS send + DynamoDB write
+# Validator: CloudWatch Logs + S3 read/write/delete + SQS send + DynamoDB write
 resource "aws_iam_role_policy" "validator_policy" {
   name = "${local.prefix}-validator-policy"
   role = aws_iam_role.validator_role.id
@@ -174,7 +174,7 @@ resource "aws_iam_role_policy" "validator_policy" {
       },
       {
         Effect   = "Allow"
-        Action   = ["s3:GetObject"]
+        Action   = ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"]
         Resource = "${module.ingest_bucket.bucket_arn}/*"
       },
       {
