@@ -3,6 +3,7 @@ python = "3.13"
 pre-commit = "latest"
 terraform = "latest"
 aws-cli = "latest"
+uv = "latest"
 
 [settings]
 experimental = true
